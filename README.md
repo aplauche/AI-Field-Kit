@@ -1,5 +1,7 @@
 # Anton's AI Field Kit
 
+![AI Field Kit](./assets/ai-field-kit.jpg)
+
 This is a living repo of examples and recipes to build real-world AI/LLM tools with Python.
 
 The focus is on functional patterns that help create robust and flexible tools across a variety of use-cases.
