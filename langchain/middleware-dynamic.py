@@ -148,3 +148,5 @@ agent = create_agent(
 )
 
 # intern will upgrade to larger model when conversation continues for too long to stay helpful
+
+# TO DEBUG: print(response["messages"][-1].response_metadata["model_name"])
