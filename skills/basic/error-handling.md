@@ -1,6 +1,15 @@
-# Efficient error handling for a variety of models
-# The call_ai method works as a translater that can be modified to fit your needs
+---
+name: error-handling
+description: "Use this when implementing error handling, retry logic, or error translation for LLM/AI API calls across different providers"
+---
 
+# Error Handling for AI APIs
+
+Translates provider-specific errors into unified error types and implements retry logic with exponential backoff.
+
+## Example
+
+```python
 import time
 from openai import RateLimitError as OAIRateLimitError
 from anthropic import RateLimitError as AnthropicRateLimitError
@@ -47,7 +56,7 @@ def call_with_retry(prompt, retry_limit=3):
     try:
       response = call_ai(prompt)
       return response
-    
+
     except RateLimitError:
       # retry
       if attempt < retry_limit - 1:
@@ -65,7 +74,7 @@ def call_with_retry(prompt, retry_limit=3):
     except ContentFilterError:
       print("Content was blocked! Try again with a different prompt.")
       return "Not available - content blocked."
-    
+
     except Exception as e:
       print(f"Unexpected error: {e}")
       print("Trying again in 3 seconds...")
@@ -73,3 +82,11 @@ def call_with_retry(prompt, retry_limit=3):
         time.sleep(3)
       else:
         raise # catch all
+```
+
+## Key Points
+
+- Create unified error classes that abstract away provider differences
+- Use exponential backoff for rate limit errors (2^attempt seconds)
+- Handle token limits by truncating/summarizing prompts
+- Content filter errors should not retry - return gracefully
