@@ -16,6 +16,10 @@ First, install langgraph-cli and api
 
 `uv pip install langgraph-api`
 
+OR
+
+`uv add langgraph-api`
+
 Then create a langgraph.json file:
 
 ```
