@@ -14,6 +14,7 @@ Enjoy! 🚀
 
 - **Basic** - General setup 
 - **Intermediate** - Fine tuning, RAG, Agents, etc
+- **Claude Examples** - Specific Anthropic API examples for reference
 - **LangChain** - Examples specific to LangChain 1.0
 - **LangGraph** - Orchestration with LangGraph
 - **ML-CSS** - Abstract machine learning and computational social science snippets
